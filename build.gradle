@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.5.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id "com.diffplug.spotless" version "5.15.1"
 }
 
 group = 'com.starwars'
@@ -16,6 +17,18 @@ configurations {
 
 repositories {
 	mavenCentral()
+}
+
+spotless {
+	format 'misc', {
+		target '*.gradle', '*.md', '.gitignore'
+		trimTrailingWhitespace()
+		indentWithTabs()
+		endWithNewline()
+	}
+	java {
+		googleJavaFormat('1.8').aosp().reflowLongStrings()
+	}
 }
 
 dependencies {

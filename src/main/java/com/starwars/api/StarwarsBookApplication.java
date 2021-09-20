@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class StarwarsBookApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(StarwarsBookApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(StarwarsBookApplication.class, args);
+    }
 }
