@@ -2,27 +2,34 @@ package com.starwars.api.Controllers;
 
 import com.starwars.api.Models.Book;
 import com.starwars.api.Repositories.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/books")
 public class BookController {
 
-  private final BookRepository repository;
+    private final BookRepository bookRepository;
 
-  @Autowired
-  public BookController(BookRepository repository) {
-    this.repository = repository;
-  }
+    @Autowired
+    public BookController(BookRepository repository) {
+        this.bookRepository = repository;
+    }
 
-  @GetMapping("/{era}")
-  public List<Book> getBooksByEra(@PathVariable(name = "era") String era) {
-    return getBooksByEra(era);
-  }
+    @GetMapping("/era/{era}")
+    public List<Book> getBooksByEra(@PathVariable(name = "era") String era) {
+        return bookRepository.findByEraOrderById(era);
+    }
+
+    @GetMapping("/type/{type}")
+    public List<Book> getBooksByType(@PathVariable(name = "type") String type) {
+        return bookRepository.findByTypeOrderById(type);
+    }
+
+    @PutMapping
+    public Book updateBook(@Valid Book book) {
+        return bookRepository.save(book);
+    }
 }

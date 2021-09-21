@@ -1,32 +1,35 @@
 package com.starwars.api.Models;
 
+import java.time.Instant;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.time.Instant;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Document(collection = "starwarsbooks")
 @Data
 public class Book {
 
-    @Id
-    private String id;
+    @Id @NotBlank private String id;
 
-    private String title;
+    @NotBlank private String title;
 
-    private String author;
+    @NotBlank private String author;
 
-    private String year;
+    @NotBlank private String year;
 
-    @Indexed
-    private String type;
+    @Indexed @NotBlank private String type;
 
-    @Indexed
-    private String era;
+    @Indexed @NotBlank private String era;
 
+    @NotNull
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @Field("releasedate")
     private Instant releaseDate;
 
-    private Boolean owned;
+    @NotNull private Boolean owned;
 }

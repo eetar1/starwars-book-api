@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  style="height: 100%">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
+    <title>Eetar's Book Collection</title>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body class="app-body">
+
+<div class="d-flex align-items-center justify-content-center" style="height:100%">
+    <div class="menu-container">
+        <div class="button-container">
+            <button type="button" onclick="location.href='/old-republic'" class="btn btn-primary menu-button">Old Republic</button>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="location.href='/rise-of-the-empire'" class="btn btn-primary menu-button">Rise of the Empire</button>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="location.href='/new-republic'" class="btn btn-primary menu-button">New Republic</button>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="location.href='/new-jedi-order'" class="btn btn-primary menu-button">New Jedi Order</button>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="location.href='/legacy'" class="btn btn-primary menu-button">Legacy</button>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="location.href='/on-list'" class="btn btn-primary menu-button">ON List</button>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="location.href='/full'" class="btn btn-primary menu-button">Full List</button>
+        </div>
+    </div>
+
+
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
