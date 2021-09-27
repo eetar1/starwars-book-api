@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository extends MongoRepository<Book, String> {
 
-    List<Book> findByEraOrderById(String era);
+    List<Book> findByEraAndTypeOrderById(String era, String type);
 
     List<Book> findByTypeOrderById(String type);
+
+    List<Book> findAllByOrderById();
 }

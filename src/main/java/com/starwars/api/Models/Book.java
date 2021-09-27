@@ -32,4 +32,10 @@ public class Book {
     private Instant releaseDate;
 
     @NotNull private Boolean owned;
+
+    public Book(String id, String title, boolean owned) {
+        this.id = id;
+        this.title = title;
+        this.owned = owned;
+    }
 }

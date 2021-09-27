@@ -11,10 +11,76 @@ h4 {
     display: grid;
 }
 
+.card-container {
+    display: grid;
+    width: 60%;
+}
+
 .button-container {
-    margin-top: 10%;
+    margin-top: 15%;
 }
 
 .menu-button {
-    width: 158px
+    width: 158px;
+}
+
+.banner-container {
+    background-color: #1b1c1d
+}
+
+.main-title {
+    color: Black;
+    text-align: center;
+}
+
+.header-bar {
+    padding-bottom:5%;
+}
+
+.my-card{
+    width: 100%;
+}
+
+.my-card-header {
+    background-color: #1b1c1d !important;
+    display: flex;
+    position: relative;
+}
+
+.red-text {
+    color: red;
+}
+
+.green-text {
+    color: green;
+}
+
+.old-republic-color {
+
+}
+
+.home-button-container {
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.card-title {
+    width: 100%;
+}
+
+.edit-icon {
+    line-height: 2 !important;
+}
+
+.my-modal-content {
+    background-color: #282c34 !important;
+    color: white;
+}
+
+.my-modal-header {
+    border-bottom: 1px solid #1b1c1d !important;
+}
+
+.my-modal-footer {
+    border-top: 0px solid #1b1c1d !important;
 }

@@ -41,6 +41,10 @@ dependencies {
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	compileOnly 'org.projectlombok:lombok'
 	implementation group: 'org.webjars', name: 'bootstrap', version: '4.0.0-2'
+	implementation group: 'org.webjars', name: 'font-awesome', version: '5.15.4'
+	implementation group: 'org.webjars', name: 'jquery', version: '3.6.0'
+
+
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 

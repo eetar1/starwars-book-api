@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="height: 100%">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <title>Eetar's Book Collection</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+    <link th:rel="stylesheet" th:href="@{webjars/font-awesome/5.11.2/css/all.css} " />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
+        type="text/css" />
+</head>
+
+<body class="app-body">
+    <div class="header-bar">
+
+        <div class="d-flex justify-content-center banner-container">
+            <div>
+                <h1 class="main-title" th:text="${title}"></h1>
+            </div>
+
+        </div>
+        <div class="home-button-container">
+            <button type="button" onclick="location.href='/index'" class="btn btn-primary menu-button">Home</button>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center" style="height:100%">
+        <div class="card-container">
+            <div th:each="book : ${bookList}" class="row">
+                <div class="card border text-white bg-dark mb-3 my-card">
+                    <div class="card-header my-card-header">
+                        <p class="card-title" th:text="${book.title}"></p>
+                        <i class="fas fa-edit fa-lg edit-icon" data-toggle="modal"
+                            th:attr="data-object-id=''+${book.id}+'',data-object-owned=''+${book.owned}+'',data-object-title=''+${book.title}+''"
+                            data-target="#buyModal"></i>
+                    </div>
+
+                    <div class="card-body">
+
+                        <p class="card-text">Author: <span th:text="${book.author}"></span></p>
+                        <p> Owned: <span th:if="${book.owned}" class="green-text">True</span>
+                            <span th:if="${not book.owned}" class="red-text">False</span>
+                        </p>
+                        <p class="card-text old-republic-color">Era: <span th:text="${book.era}"></span></p>
+                        <p class="card-text">Year: <span th:text="${book.year}"></span></p>
+                    </div>
+                </div>
+                <th:block th:replace="_modals :: modal('buyModal')">modal</th:block>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+    <script>
+        $('#buyModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var objectId = button.data('objectId')
+        var objectTitle = button.data('objectTitle')
+        var owned = button.data("objectOwned")
+        $.get("modals/buyModal?title=" + objectTitle + "&id=" + objectId + "&owned=" + owned, function (data) {
+            $('#buyModal').find('.modal-body').html(data);
+        })
+    });
+
+    </script>
+
+</body>
+
+</html>

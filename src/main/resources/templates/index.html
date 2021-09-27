@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"  style="height: 100%">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="height: 100%">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
     <title>Eetar's Book Collection</title>
@@ -7,29 +7,44 @@
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <body class="app-body">
+<div class="d-flex justify-content-center banner-container">
+    <div>
+        <h1 class="main-title">Eetar's Book Collection</h1>
+    </div>
+</div>
 
 <div class="d-flex align-items-center justify-content-center" style="height:100%">
+
     <div class="menu-container">
         <div class="button-container">
-            <button type="button" onclick="location.href='/old-republic'" class="btn btn-primary menu-button">Old Republic</button>
+            <button type="button" onclick="location.href='/old-republic'" class="btn btn-primary menu-button">Old
+                Republic
+            </button>
         </div>
         <div class="button-container">
-            <button type="button" onclick="location.href='/rise-of-the-empire'" class="btn btn-primary menu-button">Rise of the Empire</button>
+            <button type="button" onclick="location.href='/rise-empire'" class="btn btn-primary menu-button">Rise
+                of the Empire
+            </button>
         </div>
         <div class="button-container">
-            <button type="button" onclick="location.href='/new-republic'" class="btn btn-primary menu-button">New Republic</button>
+            <button type="button" onclick="location.href='/new-republic'" class="btn btn-primary menu-button">New
+                Republic
+            </button>
         </div>
         <div class="button-container">
-            <button type="button" onclick="location.href='/new-jedi-order'" class="btn btn-primary menu-button">New Jedi Order</button>
+            <button type="button" onclick="location.href='/new-jedi-order'" class="btn btn-primary menu-button">New Jedi
+                Order
+            </button>
         </div>
         <div class="button-container">
             <button type="button" onclick="location.href='/legacy'" class="btn btn-primary menu-button">Legacy</button>
         </div>
         <div class="button-container">
-            <button type="button" onclick="location.href='/on-list'" class="btn btn-primary menu-button">ON List</button>
+            <button type="button" onclick="location.href='/on-list'" class="btn btn-primary menu-button">ON List
+            </button>
         </div>
         <div class="button-container">
-            <button type="button" onclick="location.href='/full'" class="btn btn-primary menu-button">Full List</button>
+            <button type="button" onclick="location.href='/full-list'" class="btn btn-primary menu-button">Full List</button>
         </div>
     </div>
 

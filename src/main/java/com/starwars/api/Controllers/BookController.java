@@ -3,7 +3,6 @@ package com.starwars.api.Controllers;
 import com.starwars.api.Models.Book;
 import com.starwars.api.Repositories.BookRepository;
 import java.util.List;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +19,7 @@ public class BookController {
 
     @GetMapping("/era/{era}")
     public List<Book> getBooksByEra(@PathVariable(name = "era") String era) {
-        return bookRepository.findByEraOrderById(era);
+        return bookRepository.findByEraAndTypeOrderById(era, "ON");
     }
 
     @GetMapping("/type/{type}")
@@ -28,8 +27,10 @@ public class BookController {
         return bookRepository.findByTypeOrderById(type);
     }
 
-    @PutMapping
-    public Book updateBook(@Valid Book book) {
-        return bookRepository.save(book);
+    @PostMapping
+    public Book updateBook(Book book) throws Exception {
+        Book save = bookRepository.findById(book.getId()).orElseThrow(Exception::new);
+        save.setOwned(book.getOwned());
+        return bookRepository.save(save);
     }
 }
