@@ -3,12 +3,12 @@
     <form th:action="@{/books}" th:modelAttribute="book" th:object="${book}" id="updateBook" method="post">
         <div class="owned-select-container">
             <div style="display: none">
-                <input type="text" th:field="*{title}">
-                <input type="text" th:field="*{id}">
+                <input type="text" th:field="${book.title}">
+                <input type="text" th:field="${book.id}">
             </div>
             <div class="form-group">
                 <label for="owned-select">Owned:</label>
-                <select class="form-control" id="owned-select" th:field="*{owned}">
+                <select class="form-control" id="owned-select" th:field="${book.owned}">
                     <option th:value="true" label="True"></option>
                     <option th:value="false" label="False"></option>
                 </select>
@@ -29,15 +29,20 @@
     </form>
 </div>
 
-<script>
+<script >
     $('#updateBook').submit(function (e) {
         e.preventDefault();
-        console.log('hi')
+
         var form = $('#updateBook').serialize()
+        var username = $("#username").val();
+        var password = $("#password").val();
         $.ajax({
             type: 'post',
             url: "/books",
             data: form,
+            headers: {
+                "Authorization": "Basic " + btoa(username + ":" + password)
+            },
             success: function (returnedData) {
                 console.log(returnedData);
             },
