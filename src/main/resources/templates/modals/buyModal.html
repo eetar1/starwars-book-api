@@ -4,7 +4,7 @@
         <div class="owned-select-container">
             <div style="display: none">
                 <input type="text" th:field="${book.title}">
-                <input type="text" th:field="${book.id}">
+                <input type="text" id="book-id" th:field="${book.id}">
             </div>
             <div class="form-group">
                 <label for="owned-select">Owned:</label>
@@ -29,28 +29,36 @@
     </form>
 </div>
 
-<script >
+<script>
     $('#updateBook').submit(function (e) {
         e.preventDefault();
 
         var form = $('#updateBook').serialize()
         var username = $("#username").val();
         var password = $("#password").val();
+        var owned = $("#owned-select").val();
+        var id = $("#book-id").val();
+        var payload = { id, owned };
         $.ajax({
             type: 'post',
             url: "/books",
-            data: form,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(payload),
             headers: {
                 "Authorization": "Basic " + btoa(username + ":" + password)
             },
             success: function (returnedData) {
-                console.log(returnedData);
+                $('#buyModal').modal('hide')
             },
 
             error: function (xhr, exception) {
-
+                if(xhr.status === 401){
+                    alert("Request Failed - Unauthorized");
+                } else {
+                    alert("Request Failed")
+                }
             }
         });
-
     });
 </script>

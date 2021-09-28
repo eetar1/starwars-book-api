@@ -2,7 +2,6 @@ package com.starwars.api.Models;
 
 import java.time.Instant;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -14,24 +13,25 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Data
 public class Book {
 
-    @Id @NotBlank private String id;
+    @Id
+    @NotBlank(message = "Book Id's must not be null")
+    private String id;
 
-    @NotBlank private String title;
+    private String title;
 
-    @NotBlank private String author;
+    private String author;
 
-    @NotBlank private String year;
+    private String year;
 
-    @Indexed @NotBlank private String type;
+    @Indexed private String type;
 
-    @Indexed @NotBlank private String era;
+    @Indexed private String era;
 
-    @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @Field("releasedate")
     private Instant releaseDate;
 
-    @NotNull private Boolean owned;
+    private Boolean owned;
 
     public Book(String id, String title, boolean owned) {
         this.id = id;

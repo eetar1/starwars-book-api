@@ -3,3 +3,11 @@ spring:
     mongodb:
       uri: ${MONGO_URI}
       auto-index-creation: true
+security:
+  basic-auth:
+    username: ${BASIC_AUTH_USER}
+    password: ${BASIC_AUTH_PASS}
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
