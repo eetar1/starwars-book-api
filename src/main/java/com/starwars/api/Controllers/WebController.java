@@ -52,7 +52,7 @@ public class WebController {
     @RequestMapping("/new-jedi-order")
     public String newJediOrder(Model model) {
         model.addAttribute(
-                "bookList", bookRepository.findByEraAndTypeOrderById("New Republic era", "ON"));
+                "bookList", bookRepository.findByEraAndTypeOrderById("New Jedi Order era", "ON"));
         model.addAttribute("title", "New Jedi Order era");
         return "bookLists/bookList";
     }
