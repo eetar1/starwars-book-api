@@ -2,7 +2,7 @@
 
 ## Description
 
-This application was created to track a collection of star wars books. This app enables you to see which book you have 
+This application was created to track a collection of star wars books. This app enables you to see which book you have
 collected and which you still need to source. When you collect a book you can update the book's status to owned.
 
 ## Running the application
@@ -21,11 +21,11 @@ If you don't want to run the application through intellij you can build and run 
 
 ## Running Version
 
-A running version of this application can be found [here](https://star-wars-book-app.herokuapp.com/). 
+A running version of this application can be found [here](https://star-wars-book-app.herokuapp.com/).
 The application is running on free tier heroku so the application can take a minute or two to start up.
 
 ## Deploying a new version
 
 The file ```deploy.sh``` is set up to deploy this application to heroku. To use this file you must create a heroku app
-called star-wars-book-app and login to the cli. If the version of this application is changed in the gradle file then 
+called star-wars-book-app and login to the cli. If the version of this application is changed in the gradle file then
 the deployment file must also be updated to point to the new jar.
