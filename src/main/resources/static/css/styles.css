@@ -29,8 +29,16 @@ h4 {
 }
 
 .main-title {
-    color: Black;
+    color: darkcyan;
     text-align: center;
+}
+
+.search-container {
+    display: contents
+}
+
+.search-icon {
+    background-color: #007bff
 }
 
 .header-bar {
@@ -83,4 +91,8 @@ h4 {
 
 .my-modal-footer {
     border-top: 0px solid #1b1c1d !important;
+}
+
+.search-input {
+    margin-bottom: 5px
 }
